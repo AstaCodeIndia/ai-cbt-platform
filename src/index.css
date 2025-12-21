@@ -1,96 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* CBT Platform Design System - NTA Inspired */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Professional Blue */
+    --primary: 213 56% 24%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 213 56% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft Gray Blue */
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 215 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Teal */
+    --accent: 180 45% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors for CBT */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Question Status Colors */
+    --not-visited: 210 15% 88%;
+    --not-visited-foreground: 215 20% 40%;
+    
+    --visited: 0 72% 51%;
+    --visited-foreground: 0 0% 100%;
+    
+    --answered: 142 70% 40%;
+    --answered-foreground: 0 0% 100%;
+    
+    --marked: 270 65% 55%;
+    --marked-foreground: 0 0% 100%;
+    
+    --answered-marked: 270 65% 55%;
+    --answered-marked-foreground: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Borders & Inputs */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 213 56% 24%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --radius: 0.625rem;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 213 56% 20%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 180 45% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 56% 28%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 213 40% 30%;
+    --sidebar-ring: 180 45% 50%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213, 56%, 24%) 0%, hsl(213, 56%, 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180, 45%, 40%) 0%, hsl(180, 45%, 55%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142, 70%, 35%) 0%, hsl(142, 70%, 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213, 56%, 20%) 0%, hsl(213, 56%, 30%) 50%, hsl(180, 45%, 35%) 100%);
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.1), 0 2px 4px -2px hsl(215 25% 15% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.1), 0 4px 6px -4px hsl(215 25% 15% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(215 25% 15% / 0.1), 0 8px 10px -6px hsl(215 25% 15% / 0.1);
+    --shadow-glow: 0 0 20px hsl(180 45% 50% / 0.3);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 215 25% 10%;
+    --foreground: 210 20% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 25% 13%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 25% 13%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 180 45% 50%;
+    --primary-foreground: 215 25% 10%;
+    --primary-light: 180 45% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 180 45% 50%;
+    --accent-foreground: 215 25% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 180 45% 50%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 215 25% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 180 45% 55%;
+    --sidebar-primary-foreground: 215 25% 10%;
+    --sidebar-accent: 215 25% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 215 20% 18%;
+    --sidebar-ring: 180 45% 55%;
   }
 }
 
@@ -99,7 +138,116 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Timer / Mono Text */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Question Status Badges */
+  .question-status {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg font-semibold text-sm cursor-pointer transition-all duration-200;
+  }
+
+  .question-status-not-visited {
+    @apply bg-[hsl(var(--not-visited))] text-[hsl(var(--not-visited-foreground))] hover:bg-[hsl(var(--not-visited))]/80;
+  }
+
+  .question-status-visited {
+    @apply bg-[hsl(var(--visited))] text-[hsl(var(--visited-foreground))] hover:bg-[hsl(var(--visited))]/80;
+  }
+
+  .question-status-answered {
+    @apply bg-[hsl(var(--answered))] text-[hsl(var(--answered-foreground))] hover:bg-[hsl(var(--answered))]/80;
+  }
+
+  .question-status-marked {
+    @apply bg-[hsl(var(--marked))] text-[hsl(var(--marked-foreground))] hover:bg-[hsl(var(--marked))]/80;
+  }
+
+  .question-status-answered-marked {
+    @apply bg-[hsl(var(--answered-marked))] text-[hsl(var(--answered-marked-foreground))] hover:bg-[hsl(var(--answered-marked))]/80 ring-2 ring-[hsl(var(--answered))];
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Stats Card */
+  .stats-card {
+    @apply bg-card rounded-xl p-6 shadow-md border border-border/50;
+  }
+
+  /* CBT Option Button */
+  .option-btn {
+    @apply w-full p-4 rounded-lg border-2 text-left transition-all duration-200 flex items-start gap-4;
+  }
+
+  .option-btn-default {
+    @apply border-border bg-card hover:border-primary/50 hover:bg-primary/5;
+  }
+
+  .option-btn-selected {
+    @apply border-primary bg-primary/10 ring-2 ring-primary/20;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
   }
 }
