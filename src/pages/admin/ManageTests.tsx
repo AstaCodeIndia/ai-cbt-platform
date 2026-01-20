@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, Plus, Grid, List } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
 import TestCard from '@/components/admin/TestCard';
@@ -70,6 +70,7 @@ const ManageTests: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [tests, setTests] = useState(allTests);
   
+  const navigate = useNavigate();
   const { toast } = useToast();
 
   const filteredTests = tests.filter((test) => {
@@ -80,8 +81,7 @@ const ManageTests: React.FC = () => {
   });
 
   const handleEdit = (id: string) => {
-    // Navigate to edit page
-    console.log('Edit test:', id);
+    navigate(`/admin/edit-test/${id}`);
   };
 
   const handleDelete = (id: string) => {

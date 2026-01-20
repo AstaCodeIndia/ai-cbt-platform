@@ -17,6 +17,8 @@ import Register from "./pages/auth/Register";
 import AdminDashboard from "./pages/admin/Dashboard";
 import CreateTest from "./pages/admin/CreateTest";
 import ManageTests from "./pages/admin/ManageTests";
+import EditTest from "./pages/admin/EditTest";
+import PublishTest from "./pages/admin/PublishTest";
 
 // Student Pages
 import StudentDashboard from "./pages/student/Dashboard";
@@ -48,6 +50,8 @@ const App = () => (
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="create-test" element={<CreateTest />} />
               <Route path="manage-tests" element={<ManageTests />} />
+              <Route path="edit-test/:id" element={<EditTest />} />
+              <Route path="publish-test/:id" element={<PublishTest />} />
             </Route>
             
             {/* Student Routes */}
